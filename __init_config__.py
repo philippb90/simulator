@@ -8,36 +8,36 @@ Stores all configurations and infos to initialize the database
 INDEX_TICKERS = [
     #America
     "SPX Index",
-    "INDU Index",
-    "CCMP Index",
-    "SPTSX Index",
-    "MEXBOL Index",
-    "IBOV Index",
-    "NDX Index",
-    "RAY Index",
-    "RTY Index",
-
-    #EMEA
-    "SX5R Index",
-    "SXXR Index",
-    "UKX Index",
-    "DAX Index",
-    "MDAX Index",
-    "TDXP Index",
-    "CAC Index",
-    "IBEX Index",
-    "FTSEMIB Index",
-    "SMI Index",
-    "PTL Index",
-    "LUXXR Index",
-    "WIG Index",
-
-    #Asia
-    "NKY Index",
-    "HSI Index",
-    "SHSZ300 Index",
-    "AS51 Index",
-    "TPX Index"
+#    "INDU Index",
+    # "CCMP Index",
+    # "SPTSX Index",
+    # "MEXBOL Index",
+    # "IBOV Index",
+    # "NDX Index",
+    # "RAY Index",
+    # "RTY Index",
+    #
+    # #EMEA
+    # "SX5R Index",
+    # "SXXR Index",
+     "UKX Index",
+     "DAX Index",
+    # "MDAX Index",
+    # "TDXP Index",
+    # "CAC Index",
+    # "IBEX Index",
+    # "FTSEMIB Index",
+    # "SMI Index",
+     "PTL Index",
+    # "LUXXR Index",
+    # "WIG Index",
+    #
+    # #Asia
+    # "NKY Index",
+    # "HSI Index",
+    # "SHSZ300 Index",
+    # "AS51 Index",
+    # "TPX Index"
 ]
 
 

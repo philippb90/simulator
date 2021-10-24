@@ -11,15 +11,19 @@ def filter_universe(ticker, filter_name="Turnover", filter_field = "30_day_avera
     current_rates = pd.read_sql(
         con=sql.connect(DB_PATH),
         sql=f"""
-            SELECT MAX(date), Securities.ticker,quote_currency, px_last
-            FROM Securities
-            INNER JOIN Currency_Rates_View on Securities.currency = Currency_Rates_View.quote_currency
-            WHERE Securities.asset_class != 'Index' AND Securities.ticker IN {ticker}
-            GROUP BY Securities.ticker
+            with current_rates as (
+                SELECT MAX(date) as max_date ,quote_currency, px_last FROM Currency_Rates_View
+                GROUP BY ticker)
+            
+            SELECT max_date, Securities.ticker, current_rates.quote_currency, px_last
+            FROM Securities 
+            INNER JOIN current_rates
+             on Securities.currency = current_rates.quote_currency
+            WHERE Securities.asset_class != 'Index' AND ticker IN {ticker}
             """
     )
 
-    current_rates.set_index("ticker", inplace=True)
+    current_rates.set_index("ticker", inplace=True, drop=False)
 
     filter_values = backend.bdp(
         tickers=current_rates.index.values,
@@ -30,5 +34,5 @@ def filter_universe(ticker, filter_name="Turnover", filter_field = "30_day_avera
     current_rates[filter_name] = current_rates[filter_field] / current_rates[
         "px_last"]
 
-    ticker = current_rates.loc[current_rates[filter_field] > threshold, filter_name]
+    ticker = current_rates.loc[current_rates[filter_field] > threshold, ["ticker",filter_name]]
     return ticker

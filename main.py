@@ -94,4 +94,5 @@ def init_db():
     
 if __name__ == '__main__':
     #init_db()
-
+    backend = Backend(DB_PATH)
+    backend._init_db_()
