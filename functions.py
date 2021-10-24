@@ -26,7 +26,9 @@ def filter_universe(ticker, filter_name="Turnover", filter_field = "30_day_avera
         flds=filter_field
     )
 
+    current_rates = current_rates.join(filter_values, how="inner")
     current_rates[filter_name] = current_rates[filter_field] / current_rates[
         "px_last"]
 
-    return current_rates.loc[[current_rates[filter_name] > threshold],"ticker"]
+    ticker = current_rates.loc[current_rates[filter_field] > threshold, filter_name]
+    return ticker
