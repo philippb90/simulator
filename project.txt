@@ -1,0 +1,97 @@
+Project Describtion
+
+
+###################################################################################################################
+1) Goals and Process Structure
+###################################################################################################################
+The aim of the project is to create a backtest engine that is able to:
+	a) Simulate investment strategies based on a set of given functions and inputs as well as asset returns
+	   and return the weights for those assets as a percentage of the whole portfolio.
+
+	b) Run backtests for investment strategies for securities of different asset classes and currencies
+	   and output a comprehensive report of the results.
+
+	c) Should ultimately be able to manage a real portfolio that trades and rebalances completely automatic.
+
+
+To achiev the goals set above, the programm needs to be able to do the following:
+
+- Request data from a data source (preferable from an SQL database or 3rd party API)
+
+- Calculate the optimal portfolio weights based on a set of functions and constraints
+
+- Use the optimal weights to calculate the number of each security that should be in the portfolio 
+  (in currency value and number of securities) and store them into a database
+
+- Compare the current holdings of the portfolio to the target amount that was returned by the simulater
+  and simulate a trade of the assets
+
+- The simulated trade should check certain conditions (e.g. if the trade is bigger than some predefined minimum value)
+  and should return the costs of the trade (spread + broker fee), the number of securities traded or the cash equivalent
+  in case of a sell, as well as the total amount traded (minus the costs)
+
+- Calculate the portfolio return and other metrics and export a report with graphs and metrics
+
+
+###################################################################################################################
+2) Requirements
+###################################################################################################################
+2.1) Backend:
+Static Data:
+- Security:
+	- ticker
+	- name
+	- main_index
+	- currency
+	- country
+	- industry
+	- asset_class
+	- margin
+
+- Strategy:
+	-
+
+
+
+- Backtest:
+	- start_date
+	- end_date
+	- rebalancing_interval
+	-
+
+
+
+Variable Data:
+- Securities:
+	- PX_LAST
+	- VWAP
+	- AVERAGE_BID_ASK_SPREAD
+	- TURNOVER
+
+###################################################################################################################
+3) Psydo-Code
+###################################################################################################################
+
+
+
+
+###################################################################################################################
+4) Classes and methods
+###################################################################################################################
+
+Backend
+
+
+Backtest
+
+
+Security
+	-name
+	-
+
+
+
+
+
+
+
